@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+body {
+  box-sizing: border-box;
+  font-size: $font-weight-normal;
+  font-family: 'Inter', sans-serif;
+  background-image: url("~@/assets/images/pattern-curve.svg");
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-position: bottom left;
+}

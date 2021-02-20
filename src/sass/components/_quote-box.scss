@@ -1,0 +1,47 @@
+.quote-box {
+  grid-column: 1 / 2;
+  align-self: center;
+  justify-self: end;
+  position: relative;
+  margin-top: 15rem;
+  z-index: 1;
+
+  transform: translate(15rem);
+
+  &__icon {
+    position: absolute;
+    width: 120px;
+    height: 100px;
+    background-image: url("~@/assets/images/pattern-quotes.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 9.5rem;
+    transform: translateY(-6.6rem);
+  }
+
+  &__quote {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.2rem;
+    font-weight: $font-weight-light;
+    color: $dark-blue;
+    line-height: 4rem;
+    width: 33ch;
+  }
+
+  &__name {
+    display: flex;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    font-size: 1.7rem;
+    font-weight: $font-weight-bold;
+    color: $dark-blue;
+  }
+
+  &__profession {
+    margin-left: 1rem;
+    font-size: 1.7rem;
+    font-weight: $font-weight-light;
+    color: $grey-blue;
+  }
+}
