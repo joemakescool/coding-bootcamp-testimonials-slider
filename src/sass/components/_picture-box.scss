@@ -2,12 +2,16 @@
   position: relative;
   display: flex;
 
+  @include respond(tab-port) {
+    order: 1;
+  }
+
   &__picture {
     filter: drop-shadow(.5rem 1rem 3rem rgba($dark-blue, .5)) sepia(25%);
-    transform: translate(7rem, 6.5rem);
+    transform: translate(6.8rem, 6.5rem);
 
     & img {
-      width: 80.5%;
+      width: 77%;
       height: auto;
       clip-path: inset(0 round .5rem);
     }
@@ -24,21 +28,47 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    @include respond(tab-port) {
+      width: 100%;
+      background-repeat: no-repeat;
+      margin: 4rem;
+    }
+
   }
 
   &__nav {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+
     border-radius: 100px;
 
     background-color: #FFFFFF;
     position: absolute;
-    bottom: 0;
+    bottom: 4%;
     left: 14.5rem;
-    z-index: 100;
+    z-index: 1000;
     cursor: pointer;
 
     box-shadow: 1rem 1rem 4rem rgba($dark-blue, .4);
+
+
+    @include respond(tab-port) {
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      width: 25%;
+      height: 12%;
+      padding: 1rem;
+      z-index: 1000;
+      left: 0;
+      bottom: -4%;
+      margin: 0 auto;
+    }
+
+    &--line {
+      height: 4rem;
+    }
 
     &--right {
       display: flex;
@@ -49,6 +79,10 @@
       width: 5rem;
       height: 5rem;
       z-index: 5;
+
+      @include respond(tab-port) {
+      }
+
     }
 
     &--left {
@@ -61,6 +95,10 @@
       width: 5rem;
       height: 5rem;
       z-index: 5;
+
+      @include respond(tab-port) {
+      }
+
     }
 
 

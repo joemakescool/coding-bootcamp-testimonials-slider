@@ -5,16 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    routes: ['Emilia', 'John', 'Rey'],
-    place: 0
+    routes: ['/', 'John', 'Rey'],
+    place: 0,
+    direction: -1
   },
   mutations: {
 
   },
   actions: {
-    movePlace (context, newPlace) {
-      console.log('movePlace() fired ' + newPlace)
+    movePlace (context, { newPlace, direction }) {
       context.state.place = newPlace
+      context.state.direction = direction
     }
   },
   getters: {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     getRoutes (state) {
       return state.routes
+    },
+    getDirection (state) {
+      return state.direction
     }
   },
   modules: {

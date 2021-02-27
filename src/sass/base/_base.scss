@@ -9,6 +9,10 @@
 html {
   // This defines what 1rem is
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-port) {
+    font-size: 35%;
+  }
 }
 
 body {
@@ -19,4 +23,10 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   background-position: bottom left;
+  overflow-x: hidden;
+
+  @include respond(tab-port) {
+    background-position: bottom;
+    height: 100%;
+  }
 }

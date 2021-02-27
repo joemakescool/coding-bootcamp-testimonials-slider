@@ -6,9 +6,15 @@
 
       <div class="quote-box__icon"></div>
 
-      <div class="quote-box__quote">
-        <slot name="quote"></slot>
-      </div>
+      <transition
+        @appear="appearQuote"
+        :css="false"
+        mode="out-in"
+      >
+        <div class="quote-box__quote">
+          <slot name="quote"></slot>
+        </div>
+      </transition>
 
       <div class="quote-box__name">
         <p>
@@ -44,7 +50,7 @@
 
           <!--          DIVIDER           -->
           <div>
-            <svg width="2" height="50">
+            <svg class="picture-box__nav--line" width="2" height="50">
               <line y1="25%" y2="75%" fill="none" stroke="#8585AC" stroke-width="3"></line>
             </svg>
           </div>
@@ -66,14 +72,30 @@
 </template>
 
 <script>
+import anime from 'animejs'
+
+const { appearQuote } = require('@/javascript/quoteBoxAnimations')
+
 export default {
   name: 'Quote',
-  data () {
-    return {
-      routes: ['Emilia', 'John']
-    }
-  },
+
   methods: {
+    appearQuote,
+
+    playMe () {
+      console.log('playing')
+
+      const t2 = anime({
+        targets: '.q',
+        translateX: 25, // -> '250px'
+        duration: 2000,
+        delay: anime.stagger(100)
+
+      })
+
+      t2.play()
+    },
+
     changeSlide (direction) {
       // 1. find the place
       // 2. hit the direction - or +
@@ -85,15 +107,13 @@ export default {
 
       let goingTo = place + (direction)
 
-      console.log('goingTo: ' + goingTo)
-
       if (goingTo > routes.length - 1) {
         goingTo = 0
       } else if (goingTo < 0) {
         goingTo = routes.length - 1
       }
 
-      this.$store.dispatch('movePlace', goingTo)
+      this.$store.dispatch('movePlace', { newPlace: goingTo, direction })
       this.$router.push(routes[goingTo])
     }
   }

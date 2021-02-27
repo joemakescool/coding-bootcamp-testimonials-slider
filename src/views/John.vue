@@ -1,5 +1,5 @@
 <template>
-  <Quote>
+  <Quote key="John">
     <template v-slot:quote>
       “ If you want to lay the best foundation possible I’d recommend taking this course.
       The depth the instructors go into is incredible. I now feel so confident about
