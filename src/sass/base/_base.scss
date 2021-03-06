@@ -21,12 +21,10 @@ body {
   font-family: 'Inter', sans-serif;
   background-image: url("~@/assets/images/pattern-curve.svg");
   background-repeat: no-repeat;
-  height: 100vh;
   background-position: bottom left;
   overflow-x: hidden;
 
   @include respond(tab-port) {
-    background-position: bottom;
-    height: 100%;
+
   }
 }
