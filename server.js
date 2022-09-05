@@ -1,5 +1,5 @@
 // Module Dependencies
-const express = require('express')
+const express = require('express') // update sass
 // work please. what doesn't the node-sass load on heroku
 const serveStatic = require('serve-static')
 const path = require('path')
